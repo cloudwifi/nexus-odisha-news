@@ -1,3 +1,4 @@
+import logo from './assets/logo2.jpeg'
 import React, { useState, useEffect } from 'react';
 import { 
   Home, 
@@ -45,7 +46,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 import { News, Video, Reporter } from './types';
 
-const LOGO_URL = "logo2.jpeg"; // Official Nexus Odisha News Logo
+// const LOGO_URL = "logo2.jpeg"; // Official Nexus Odisha News Logo
 
 // --- Components ---
 
@@ -68,7 +69,7 @@ const Navbar = ({ activePage, setActivePage, isAdmin }: { activePage: string, se
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => setActivePage('home')}>
-            <img src={LOGO_URL} alt="Nexus Odisha News" className="h-12 w-auto object-contain" referrerPolicy="no-referrer" />
+	   <img src={logo} alt="Nexus Odisha News" className="h-12 w-auto object-contain" />
             <div className="flex flex-col">
               <span className="text-xl font-bold tracking-tighter text-orange-500 leading-none">NEXUS</span>
               <span className="text-sm font-medium text-white tracking-widest">ODISHA NEWS</span>
@@ -311,7 +312,7 @@ const HomePage = ({ news, videos, onReadMore, onVideoClick }: { news: News[], vi
         <meta name="description" content="Your trusted source for the latest news, ground reports, and in-depth analysis from across Odisha. Stay updated with Nexus Odisha News." />
         <meta property="og:title" content="Nexus Odisha News | Latest News from Odisha" />
         <meta property="og:description" content="Trusted news and ground reports from every corner of Odisha." />
-        <meta property="og:image" content={LOGO_URL} />
+        <meta property="og:image" content={logo} />
       </Helmet>
       <div className="mb-12">
         <h2 className="text-4xl font-bold text-gray-900 mb-2">Latest News</h2>
@@ -1282,7 +1283,7 @@ const NewsDetailModal = ({ item, onClose }: { item: News, onClose: () => void })
         <meta name="description" content={item.content?.substring(0, 160) + '...'} />
         <meta property="og:title" content={item.title} />
         <meta property="og:description" content={item.content?.substring(0, 160) + '...'} />
-        <meta property="og:image" content={item.image_url || LOGO_URL} />
+        <meta property="og:image" content={item.image_url ? item.image_url : logo} />
         <meta property="og:type" content="article" />
       </Helmet>
       <motion.div 
@@ -1502,7 +1503,7 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center gap-3 mb-6">
-                <img src={LOGO_URL} alt="Nexus Logo" className="h-10 w-auto object-contain" referrerPolicy="no-referrer" />
+                <img src={logo} alt="Nexus Odisha News" className="h-12 w-auto object-contain" />
                 <span className="text-2xl font-bold tracking-tighter text-orange-500">NEXUS ODISHA NEWS</span>
               </div>
               <p className="text-zinc-400 max-w-md leading-relaxed">
